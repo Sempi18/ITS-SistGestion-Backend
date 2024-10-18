@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Innovador</title>
+    <style>
+      @keyframes gradientBackground {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #4a90e2, #9013fe);
+        background-size: 200% 200%;
+        animation: gradientBackground 10s ease infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .login-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        width: 400px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transform: scale(0.8);
+        animation: scaleUp 0.5s forwards;
+      }
+
+      @keyframes scaleUp {
+        to {
+          transform: scale(1);
+        }
+      }
+
+      .login-container::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.3),
+          rgba(255, 255, 255, 0)
+        );
+        animation: pulse 2.5s infinite;
+        z-index: -1;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .login-container h2 {
+        margin-bottom: 25px;
+        font-size: 2rem;
+        color: #333;
+        opacity: 0;
+        animation: fadeIn 1s forwards 0.3s;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .login-container label {
+        display: block;
+        text-align: left;
+        margin-bottom: 5px;
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .login-container input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .login-container input:hover {
+        border-color: #ff4b2b;
+        box-shadow: 0 0 8px rgba(255, 75, 43, 0.5);
+      }
+
+      .login-container input:focus {
+        border-color: #ff416c;
+        outline: none;
+        box-shadow: 0 0 12px rgba(255, 65, 108, 0.7);
+      }
+
+      .login-container button {
+        width: 100%;
+        padding: 12px;
+        background-color: #ff416c;
+        background-image: linear-gradient(45deg, #ff416c, #ff4b2b);
+        color: white;
+        font-size: 1rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .login-container button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 300%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: skewX(-45deg);
+        transition: all 0.6s ease;
+      }
+
+      .login-container button:hover::before {
+        left: 100%;
+      }
+
+      .login-container button:hover {
+        background-image: linear-gradient(45deg, #ff4b2b, #ff416c);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Iniciar Sesión</h2>
+      <form action="/auth" method="POST">
+        <label for="nombre">Usuario</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit">Log In</button>
+      </form>
+    </div>
+  </body>
+</html>
